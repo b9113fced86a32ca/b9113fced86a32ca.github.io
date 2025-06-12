@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title id="title">来人了？</title>
+		<link rel="stylesheet" type="text/css" href="1.css">
+	</head>
+	<body>
+		<h1 id="demo">真的有人来？</h1>
+		<button id="button"type=button onclick='
+			document.getElementById("demo").innerHTML = "不是，你还真点啊？别人让你点你就点？笑死";
+			document.getElementById("demo").style.fontSize = "50px";
+			document.getElementById("demo").style.color = "#ff0000";
+			document.getElementById("demo").style.border = "2px solid #ff0000";
+			document.getElementById("demo").style.borderRadius = "25px";
+			document.getElementById("button").style.display="none";
+			document.getElementById("title").innerHTML = "你还真点？";
+		'>点我</button>
+	</body>
+</html>
