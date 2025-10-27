@@ -1,22 +1,214 @@
-<html>
-    <head>
-        <title>孙麦桐辟谣站</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="index.css">
-    </head>
-    <body>
-        <div class="sidebar">
-            <iframe src="other/sidebar.html" width="200px" frameborder="0" height="100%"></iframe>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="GBK">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请输入文本</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        p {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        .input-group {
+            margin: 25px 0;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #ff7e5f;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        button {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .info-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .info-box h3 {
+            margin-bottom: 15px;
+            color: #feb47b;
+        }
+        
+        .info-box ul {
+            padding-left: 20px;
+        }
+        
+        .info-box li {
+            margin-bottom: 10px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        #encryptedData {
+            display: none;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>怪异的加密资源</h1>
+        <p>请输入密钥以解密隐藏的内容。（大概率很劣质，这里这么华丽是因为这是AI生成的）</p>
+        
+        <div class="input-group">
+            <label for="keyInput">请输入解密密钥：</label>
+            <input type="text" id="keyInput" placeholder="输入您的密钥...">
         </div>
-        <div class="main-content">
-            <p class="tips"><br>温馨提示：本站也就图一乐，等人少了自然会关闭<br><small>然而关闭不了喽，托管到<a href="b9113fced86a32ca.github.io">b9113fced86a32ca.github.io</a>喽~</small><br></p>
-            <!--<p class="tips2"><br>本站已暂停维护<br><small>将会于10-27恢复维护</small><br></p>-->
-            <div class="title">
-                <p class="title_main">孙麦桐<s>造谣</s>辟谣站</p>
-                <p class="title_secondary">我和刘美乐没有任何关系！！</p>
-            </div>
-            <img src="ccc.png">
-            <iframe src="other/new.html" width="100%" height="200px"></iframe>
+        
+        <button id="decryptBtn">解密HTML内容</button>
+        
+        <div class="info-box">
+            <h3>使用说明：</h3>
+            <ul>
+                <li>在文本框中输入正确的解密密钥</li>
+                <li>点击"解密HTML内容"按钮</li>
+                <li>如果密钥正确，页面将被替换为解密后的HTML内容</li>
+                <li>如果密钥错误，你就等着乱码吧</li>
+            </ul>
         </div>
-    </body>
+        
+        <!---<div class="footer">
+            <p>此页面包含加密的HTML内容，需要使用正确的密钥才能查看。</p>
+        </div>--->
+    </div>
+
+    <!-- 这里存储加密后的HTML数据 -->
+    <div id="encryptedData">byUgMiR0UnNtdH90Ij0yKWpVaGp4c210f2h2LDo5ODp2r/XKpO75ruvIu/PLt/jpv/jUaHA8Iyw/KGpVaGp4c210f2h2NTY5NX8rIjkhPjErdWgNBwt5Z2p0UnNtdH9oanhzcTg2JiF4ISg4Ymo5LCohMSwgLz0nb3QrMTo9bm8gOjA+dzA+J31oIio2K2l9ISQ8NjV6PDs5em1HdH9oamR8JTE+LHRSc210f3QoNzc0alVoanhzbXR/aHY8Ojt0PCQrKyBwdiwhLj0xLCZ9dkB4c210f2hqeHNtdH90Iz4hLDk6aDkqMHB2MDwiPSFiJzYsLzoyP3o3PCc0cW0jNiw+MG5vZm94OiBxbTItKSc9MSImOy04ZXF9dn8gLzE0JSBiantoY2h2YXRlMTU/NTItdFJzbXR/aGp4c3F7OyE8ZlltdH9oanhzbWg7ITx4MCE1LDt3ej4sPTFlKTc9OTExPGhmWW10f2hqeHNtdH9oamQjbTczKTkrbm8gNjg5em1xNi12rOD6pPL3rsXItOnusPTQvs/hs/TRruHMqOTurdHmt/XUu/Hat+/Bs/LBruLpqOTOrPDeu8r+uMz8vO/Xsdr7o8/+cTYtdnYrPiw4M3at3OWl1NOtz+u62vm78Me86cuxyfWl5N+r3cev5Pm2xeRjKWowISgyYmooYWJ8ZzkrLzxrezVseik5fSo9KyA/On0kO312KGFifGc5Ky88a3s1bHopOX0qPSsgPzp9JDtjZytmttvpIXRlKz4sODN2djohc2hwOHRSc210f2hqeHNtdH9odnl+YGgvaCk0Mj4nYmo+MSM+Zn12djohc7LD5K3zyqjj7a7Q2rbMyLjz/r7Z6Wg9OnRkICA1MyR0vePLsOPSruLdfGRyen2+0u+x+8Wt4+er3vt0ZSs+LDgzdnY6IXNocDh0dX5zXn9oanhzbXR/aGp4c3EwNj5qOz8sJyx1aCw6OTg6anRSc210f2hqeHNtdH9oanhzbWgvaCk0Mj4nYmo+MSchMQAlKzE9b2q65dOx6euy/th2K22k1P+g+vtvYidhoPTHu/33uOPTZHw9alVoanhzbXR/aGp4c210f2hqZCNtNzMpOStubyA2PCY9DD4xPCckPDI/LX12rNDCqMbTrcLAtPPau/HavuHsssPBruPoqenKrc/rtP7vsPTLt+/MaHA4dFJzbXR/aGp4c210f2h2dzckImFCanhzbXR/aGp4c210YyEnP3M+Jjx1aDswLnovJi16bUd0f2hqeHNtdH9oanhvJDItKSc9cz4mPHVoNyclMS1nJD0kYzwrJSZ6czo9OzwiZXF8ZG9taHg7KD04ID5lcX9kbzgyem1xezYuODk+KGpVaGp4c210f2h2dzckImFCanhzbWhwKiU8KnNeY2ciLD4halU=</div>
+
+    <script>
+        document.getElementById('decryptBtn').addEventListener('click', function() {
+            const key = document.getElementById('keyInput').value.trim();
+            const encryptedDataElement = document.getElementById('encryptedData');
+            const encryptedHex = encryptedDataElement.textContent;
+            
+            if (!key) {
+                alert('请输入解密密钥！');
+                return;
+            }
+            
+            try {
+                // 尝试解密数据
+                const decryptedHTML = decryptHTML(encryptedHex, key);
+                // 使用DOM操作替换整个页面内容
+                document.open();
+                document.write(decryptedHTML);
+                document.close();
+            } catch (error) {
+                alert('解密失败！请检查密钥是否正确。');
+                console.error('解密错误:', error);
+            }
+        });
+        
+        // 简单的XOR解密函数
+        function decryptHTML(base64Str, keyStr) {
+            // 将Base64字符串解码为二进制字符串
+            const decodedStr = atob(base64Str);
+            
+            // 将解码后的字符串和密钥字符串转换为Uint8Array
+            const decodedBytes = new Uint8Array(decodedStr.length);
+            const keyBytes = new TextEncoder().encode(keyStr);
+            
+            // 将解码后的字符串转换为字节数组
+            for (let i = 0; i < decodedStr.length; i++) {
+                decodedBytes[i] = decodedStr.charCodeAt(i);
+            }
+            
+            // 执行按位异或操作（密钥循环使用）
+            const resultBytes = new Uint8Array(decodedBytes.length);
+            for (let i = 0; i < decodedBytes.length; i++) {
+                const keyIndex = i % keyBytes.length;
+                resultBytes[i] = decodedBytes[i] ^ keyBytes[keyIndex];
+            }
+            const decoder = new TextDecoder;
+            // 将结果转换回字符串
+            let resultStr = decoder.decode(resultBytes);
+            
+            return resultStr;
+        }
+    </script>
+</body>
 </html>
