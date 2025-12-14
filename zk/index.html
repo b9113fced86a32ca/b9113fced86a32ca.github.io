@@ -6,7 +6,7 @@
     <body>
         <p>距离 2026 年中考还有<span id="days-count">正在计算...</span>天。</p>
         <p>祝我一切顺利。</p>
-        <p>已经有<img src="https://w.saobby.com/w/o75oxndd">人看见并在心中默默祝我一切顺利。</p>
+        <p>已经有<img src="https://w.saobby.com/w/o75oxndd" style="vertical-align: top;margin-top: 3px;">人看见并在心中默默祝我一切顺利。</p>
         <small>转发一下吧谢谢喵~</small>
     </body>
     <script>
@@ -27,9 +27,8 @@
             daysCountEl.textContent = days
             
             // 如果时间已过，显示不同样式
-            if (timeDiff <= 0) {
+            if (timeDiff < 0) {
                 daysCountEl.style.color = 'red';
-                daysCountEl.textContent = '时间已到！';
             } else {
                 daysCountEl.style.color = 'black';
             }
