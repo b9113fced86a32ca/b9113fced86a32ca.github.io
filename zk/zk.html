@@ -21,14 +21,7 @@
             const days = Math.ceil(timeDiff / 86400);
             
             // 更新DOM显示
-            currentTimeEl.textContent = formatDate(now);
             daysCountEl.textContent = days + ' 天';
-            
-            // 更新手动计算部分
-            currentTimestampEl.textContent = currentTimestamp;
-            timeDiffEl.textContent = timeDiff;
-            rawDaysEl.textContent = (timeDiff / 86400).toFixed(6);
-            ceilDaysEl.textContent = days;
             
             // 如果时间已过，显示不同样式
             if (timeDiff <= 0) {
