@@ -4,7 +4,10 @@
         <title></title>
     </head>
     <body>
-        <p>距离 2026 年中考还有<span id="days-count">正在计算...</span>天</p>
+        <p>距离 2026 年中考还有<span id="days-count">正在计算...</span>天。</p>
+        <p>祝我一切顺利。</p>
+        <p>已经有<img src="https://w.saobby.com/w/o75oxndd">人看见并在心中默默祝我一切顺利。</p>
+        <small>转发一下吧谢谢喵~</small>
     </body>
     <script>
         const TARGET_TIMESTAMP = 1781884800;
@@ -21,7 +24,7 @@
             const days = Math.ceil(timeDiff / 86400);
             
             // 更新DOM显示
-            daysCountEl.textContent = days + ' 天';
+            daysCountEl.textContent = days
             
             // 如果时间已过，显示不同样式
             if (timeDiff <= 0) {
